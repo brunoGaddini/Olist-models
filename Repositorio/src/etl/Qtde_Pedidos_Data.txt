@@ -1,9 +1,0 @@
--- Quantidade de pedidos por data
-
-SELECT date(dtPedido) as dtPedido,
-       count(*) AS qtPedido
-
-FROM pedido
-
-GROUP BY 1
-ORDER BY 1
