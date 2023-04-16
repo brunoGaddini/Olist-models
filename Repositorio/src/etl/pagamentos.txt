@@ -8,7 +8,10 @@
 
     LEFT JOIN silver.olist.pagamento_pedido AS t2
     ON t1.idPedido = t2.idPedido
-
+    
+    # Error: Se um pedido contém mais de um item as linhas serão duplicadas.
+    # Obs: Corrigir erro
+    
     LEFT JOIN silver.olist.item_pedido AS t3
     ON t1.idPedido = t3.idPedido
 
