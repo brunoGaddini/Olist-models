@@ -61,6 +61,6 @@ SELECT idVendedor,
   sum(CASE WHEN descTipoPagamento= 'voucher'     THEN vlPedidoMeioPagamento ELSE 0 END) / sum(vlPedidoMeioPagamento) AS pct_valor_voucher_pedido
 
 
-FROM tb_group
+FROM tb_group 
 
 GROUP BY 1
