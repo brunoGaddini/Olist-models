@@ -11,6 +11,8 @@
     
     # Error: Se um pedido contém mais de um item as linhas serão duplicadas.
     # Obs: Corrigir erro
+    # Steps:
+        # 1 Descobrir quais são os sellers de cada pedido
     LEFT JOIN silver.olist.item_pedido AS t3
     ON t1.idPedido = t3.idPedido
 
