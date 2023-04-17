@@ -1,21 +1,33 @@
 -- Databricks notebook source
 -- Selecionando a range de data para pedidos
-    WITH tb_join AS (
+-- Preparing data to avoid duplication
+WITH tb_pedidos AS (
+    
+  SELECT 
+    DISTINCT
+    t1.idPedido,
+    t2.idVendedor
 
-    SELECT t2.*,
-           t3.idVendedor
+  FROM silver.olist.pedido as t1
+  
+  LEFT JOIN silver.olist.item_pedido AS t2
+  ON t1.idPedido = t2.idPedido
+  
+  WHERE t1.dtPedido < '2018-01-01'
+  AND   t1.dtPedido >= add_months('2018-01-01', -6)
+  AND   idVendedor IS NOT NULL
+    
+),   
+    
+tb_join AS (
 
-    FROM silver.olist.pedido AS t1
+  SELECT t1.idVendedor,
+         t2.*
 
-    LEFT JOIN silver.olist.pagamento_pedido AS t2
-    ON t1.idPedido = t2.idPedido
+  FROM tb_pedidos AS t1 -- Starting with tb_predidos
 
-    LEFT JOIN silver.olist.item_pedido AS t3
-    ON t1.idPedido = t3.idPedido
-
-    WHERE t1.dtPedido < '2018-01-01'
-    AND   t1.dtPedido >= add_months('2018-01-01', -6)
-    AND   t3.idVendedor IS NOT NULL
+  LEFT JOIN silver.olist.pagamento_pedido AS t2
+  ON t1.idPedido = t2.idPedido
 
 ),
 
