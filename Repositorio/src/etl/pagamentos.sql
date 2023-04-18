@@ -75,4 +75,4 @@ SELECT idVendedor,
 
 FROM tb_group 
 
-GROUP BY 1
+GROUP BY idVendedor
