@@ -110,5 +110,3 @@ FROM tb_summary AS t1
 
 LEFT JOIN tb_cartao AS t2
 ON t1.idVendedor = t2.idVendedor
-
---31:13
