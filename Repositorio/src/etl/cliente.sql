@@ -20,5 +20,3 @@ AND t1.dtPedido >= add_months('2018-01-01', -6)
 )
 
 SELECT * FROM tb_join
-
--- 47:18 video 03
