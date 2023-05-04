@@ -57,8 +57,6 @@ SELECT '2018-01-01' AS dtReference,
 
 FROM tb_summary
 
---01:47:06
-
 
 -- COMMAND ----------
 
@@ -78,5 +76,3 @@ GROUP BY 1
 ORDER BY COUNT(DISTINCT idPedido) DESC
 
 LIMIT 15
-
---01:43:07
