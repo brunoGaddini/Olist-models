@@ -63,6 +63,7 @@ tb_group AS (
 
 )
 
+
 SELECT 
 '2018-01-01' AS dtReference,
 
@@ -70,5 +71,19 @@ SELECT
 
 FROM tb_group
 
--- 47:18 video 03
--- 1:07:23 video 03
+####################
+# Descobrindo o top 15 categorias
+
+SELECT descCategoria   
+
+FROM silver.olist.item_pedido AS t2
+
+LEFT JOIN silver.olist.produto AS t3
+ON t2.idProduto = t3.idProduto
+
+WHERE t2.idVendedor IS NOT NULL
+
+GROUP BY 1
+ORDER BY COUNT(DISTINCT idPedido) DESC
+
+LIMIT 15
