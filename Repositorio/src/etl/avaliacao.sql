@@ -19,7 +19,7 @@ WITH tb_pedido AS (
 tb_join AS (
 
   SELECT t1.*,
-        t2.vlNota
+         t2.vlNota
 
   FROM tb_pedido AS t1
 
